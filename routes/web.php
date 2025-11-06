@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserConTroller;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -24,8 +25,20 @@ Route::controller(HomeController::class)-> group(function(){
 // })->name('login');
 
 
-Route::prefix('users')->controller(UsersController::class)->name('users')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
-    Route::post('/store', 'store')->name('store');
+
+Route::prefix('users')->controller(UsersController::class)->group(function () {
+    Route::get('/', 'index')->name('users.index');
+    Route::get('/create', 'create')->name('users.create'); // Tên đầy đủ là 'users.create'
+    Route::post('/store', 'store')->name('users.store');
+});
+
+Route::prefix('posts')->controller(PostController::class)
+->name('posts.')
+->group(function(){
+Route::get('/', 'index')->name('index');
+Route::get('/create', 'create')->name('create');
+Route::post('/', 'store')->name('store');
+Route::get('/{id}', 'edit')->name('edit');
+route::put('/{id}', 'update')->name('update');
+Route::get('/{id}/delete', 'delete')->name('delete');
 });

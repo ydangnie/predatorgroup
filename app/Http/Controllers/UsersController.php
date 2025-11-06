@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -27,20 +29,15 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
       
         
-        $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|min:6|confirmed',
 
-    ]);
     User::create([
         'name' => $request['name'],
         'email' => $request['email'],
-        'password' => bcrypt($request['password']),
+        'password' => Hash::make($request-> password),
     ]);
 
     return redirect()->route('users.create')->with('success', 'User created successfully!');
