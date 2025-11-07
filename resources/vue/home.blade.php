@@ -8,64 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Vue.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
-    <style>
-        /* Custom Fonts (Optional but enhances modern feel) */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
 
-        /* Base dark theme styling */
-        :root {
-            --color-dark-bg: #0a0a0a;
-            --color-dark-secondary: #1a1a1a;
-            --color-text-light: #e5e7eb;
-            --color-accent: #ff4500; /* Deep Orange/Red accent for mystery/power */
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--color-dark-bg);
-            color: var(--color-text-light);
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        /* Custom Scrollbar for aesthetic */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--color-dark-secondary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-accent);
-        }
-
-        /* Custom component styling using Vue data/methods where appropriate, but static CSS here */
-        .section-title {
-            letter-spacing: 0.2em;
-            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
-        }
-
-        .card-hover {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(255, 69, 0, 0.3), 0 0 30px rgba(255, 69, 0, 0.2);
-        }
-
-        /* Background effect for hero section */
-        .hero-bg {
-            background-image: 
-                linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7)),
-                radial-gradient(circle at center, rgba(51, 65, 85, 0.1), rgba(10, 10, 10, 1)),
-                url('https://images.unsplash.com/photo-1524804396411-30c93118c3a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
 <body>
 
