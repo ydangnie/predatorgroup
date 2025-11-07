@@ -1,4 +1,4 @@
-<html lang="vi">
+
 
 <head>
   <meta charset="UTF-8">
@@ -12,8 +12,8 @@
 </head>
 
 <body>
+  @include('layouts.navbar.header')
   <div class="container">
-
     <div class="left-panel">
       <h1>Chào Mừng</h1>
       <p>Khám phá thế giới của chúng tôi với trải nghiệm đăng nhập an toàn và dễ dàng</p>
@@ -25,8 +25,11 @@
           <div class="toggle-btn" data-target="register-form">Đăng Ký</div>
         </div>
 
-        <form class="form active" id="login-form" action="{{ route('postdangky') }}" method="POST" novalidate>
-           @csrf
+        <form class="form active" id="login-form" action="{{ route('postdangnhap') }}" method="POST" novalidate>
+          @if (session('message'))
+          <div class="form-success">{{ session('message') }}</div>
+          @endif
+          @csrf
           <h2 class="form-title">Đăng Nhập</h2>
           <div class="input-group">
             <label for="login-email">Email</label>
@@ -38,6 +41,9 @@
           <div class="input-group">
             <label for="login-password">Mật khẩu</label>
             <input type="password" id="login-password" name="password" class="input-field" placeholder="Nhập mật khẩu">
+             @error('password')
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
           <div class="checkbox-group">
             <input type="checkbox" id="remember-me">

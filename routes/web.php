@@ -7,10 +7,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserConTroller;
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/users', [UserConTroller::class, 'index'])->middleware('access.time');
@@ -46,3 +47,7 @@ Route::get('/{id}/delete', 'delete')->name('delete');
 });
 Route::get('dangky', [AuthDangKy::class, 'dangky']);
 Route::post('dangky', [AuthDangKy::class, 'postdangky'])->name('postdangky');
+
+Route::get('dangnhap', [AuthDangKy::class, 'dangnhap'])->name('dangnhap');
+Route::post('dangnhap', [AuthDangKy::class, 'postdangnhap'])->name('postdangnhap');
+Route::get('dangxuat', [AuthDangKy::class, 'dangxuat'])->name('dangxuat');

@@ -1,9 +1,8 @@
-@if (session('message'))
-<div class="alert alert-success">{{ session('message') }}</div>
-
-@endif
 <form class="form" id="register-form" action="{{ route('postdangky') }}" method="POST" novalidate>
-     @csrf
+    @if (session('message'))
+    <div class="form-success">{{ session('message') }}</div>
+    @endif
+    @csrf
     <h2 class="form-title">Tạo Tài Khoản</h2>
     <div class="input-group">
         <label for="register-name">Họ và tên</label>
