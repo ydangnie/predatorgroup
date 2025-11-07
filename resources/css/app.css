@@ -13,6 +13,38 @@
 
 /* === KẾT THÚC THAY THẾ TẠI ĐÂY === */
 
+
+/* Bổ sung CSS cho Bố cục Sticky Footer (Sử dụng Flexbox) */
+
+body {
+    /* Quan trọng 1: Đặt chiều cao tối thiểu bằng chiều cao của viewport */
+    min-height: 100vh;
+    /* Quan trọng 2: Sử dụng Flexbox để xếp chồng các phần tử theo chiều dọc */
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    /* Quan trọng 3: Cho phép phần nội dung chính kéo giãn để lấp đầy không gian còn trống */
+    flex-grow: 1;
+    /* Điều chỉnh lề trên để tránh bị header cố định che khuất */
+    /* Dựa trên header.css, header của bạn có vẻ cao khoảng 100px - 120px */
+    padding-top: 100px;
+}
+
+
+/* Đảm bảo Footer không bị co lại */
+
+footer {
+    width: 100vw;
+    margin-top: 100px;
+    /* hoặc 100% nếu không bị giới hạn bởi container */
+    background-color: #000;
+    /* màu nền */
+    color: #fff;
+    border-top: 100px
+}
+
 @import './dangnhap.css';
 @import './header.css';
 @import './footer.css';

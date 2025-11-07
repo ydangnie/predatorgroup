@@ -1,22 +1,48 @@
- // Add subtle interactivity
- document.addEventListener('DOMContentLoaded', function() {
-     const hoverElements = document.querySelectorAll('.hover-glow');
+function handleNewsletter(event) {
+    event.preventDefault();
+    const btn = event.target.querySelector('.pw-newsletter-btn');
+    const btnText = document.getElementById('btnText');
+    const input = event.target.querySelector('.pw-newsletter-input');
 
-     hoverElements.forEach(element => {
-         element.addEventListener('mouseenter', function() {
-             this.style.transition = 'all 0.3s ease';
-         });
-     });
+    // Loading state
+    btnText.innerHTML = '<div class="pw-loading-dots"><span></span><span></span><span></span></div>';
+    btn.disabled = true;
 
-     // Add subtle animation to newsletter input on focus
-     const newsletterInput = document.querySelector('input[type="email"]');
-     if (newsletterInput) {
-         newsletterInput.addEventListener('focus', function() {
-             this.parentElement.classList.add('ring-2', 'ring-amber-500', 'rounded-lg');
-         });
+    // Simulate API call
+    setTimeout(() => {
+        btnText.textContent = '✓ Đã đăng ký';
+        btn.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)';
+        input.value = '';
 
-         newsletterInput.addEventListener('blur', function() {
-             this.parentElement.classList.remove('ring-2', 'ring-amber-500', 'rounded-lg');
-         });
-     }
- });
+        // Reset after 3 seconds
+        setTimeout(() => {
+            btnText.textContent = 'Gửi';
+            btn.style.background = 'linear-gradient(135deg, #333333 0%, #111111 100%)';
+            btn.disabled = false;
+        }, 3000);
+    }, 1500);
+}
+
+// Add smooth scroll behavior
+document.querySelectorAll('.pw-footer-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+// Add parallax effect to decorations
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const decorations = document.querySelectorAll('.pw-footer-decoration');
+
+    decorations.forEach((decoration, index) => {
+        const speed = index === 0 ? 0.5 : 0.3;
+        decoration.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+});
