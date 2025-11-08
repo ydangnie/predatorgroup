@@ -154,7 +154,7 @@
                 <li class="nav-item" id="logout">
                     @guest
                     
-                    <a href="{{ route('dangnhap') }}" class="nav-link">Login</a>
+                    <a href="{{ route('login') }}" class="nav-link">Login</a>
                     @endguest
                     @auth
                     

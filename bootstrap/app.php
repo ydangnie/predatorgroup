@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\CheckAccessTime;
+use App\Http\Middleware\PhanQuyenAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -17,8 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //global middle ware
-        // $middleware->append(CheckAccessTime::class);
+        $middleware->alias([
+            'admin' => PhanQuyenAdmin::class
+        ]);
         $middleware->alias(['access.time' => CheckAccessTime::class]
             
         );

@@ -42,6 +42,6 @@ Route::get('/{id}/delete', 'delete')->name('delete');
 Route::get('dangky', [AuthDangKy::class, 'dangky']);
 Route::post('dangky', [AuthDangKy::class, 'postdangky'])->name('postdangky');
 
-Route::get('dangnhap', [AuthDangKy::class, 'dangnhap'])->name('dangnhap');
+Route::get('dangnhap', [AuthDangKy::class, 'dangnhap'])->name('login');
 Route::post('dangnhap', [AuthDangKy::class, 'postdangnhap'])->name('postdangnhap');
 Route::get('dangxuat', [AuthDangKy::class, 'dangxuat'])->name('dangxuat');
