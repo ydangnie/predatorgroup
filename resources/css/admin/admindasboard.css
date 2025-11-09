@@ -132,6 +132,9 @@
      align-items: center;
      border: 1px solid #2a2a2a;
      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+     /* SỬA LỖI Z-INDEX */
+     position: relative;
+     z-index: 10;
  }
  
  .search-bar {
@@ -509,4 +512,129 @@
      background: rgba(192, 192, 192, 0.1);
      border-color: #c0c0c0;
      color: #ffffff;
+ }
+ /* --- CSS CHUNG CHO DROPDOWN (HOVER) --- */
+ /* Đổi tên từ .profile-dropdown-container thành .dropdown-container */
+ 
+ .dropdown-container {
+     position: relative;
+     /* SỬA LỖI MẤT HOVER */
+     padding-bottom: 0.75rem;
+ }
+ 
+ .user-profile .fa-chevron-down {
+     font-size: 0.8rem;
+     color: #9a9a9a;
+     margin-left: 0.5rem;
+     transition: transform 0.3s ease;
+ }
+ 
+ .dropdown-menu {
+     display: none;
+     /* Ẩn mặc định */
+     position: absolute;
+     top: 100%;
+     right: 0;
+     margin-top: 0.75rem;
+     /* Giữ khoảng cách trực quan */
+     width: 220px;
+     background: linear-gradient(135deg, #1f1f1f 0%, #121212 100%);
+     border: 1px solid #2a2a2a;
+     border-radius: 12px;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+     z-index: 1000;
+     overflow: hidden;
+     /* Để bo góc các item bên trong */
+     padding: 0.5rem;
+ }
+ /* CSS cho dropdown rộng hơn (dùng cho thông báo, tin nhắn) */
+ 
+ .dropdown-menu.dropdown-lg {
+     width: 320px;
+ }
+ /* HIỆN DROPDOWN KHI DI CHUỘT VÀO CONTAINER */
+ 
+ .dropdown-container:hover .dropdown-menu {
+     display: block;
+ }
+ /* XOAY MŨI TÊN (chỉ áp dụng cho user-profile) */
+ 
+ .dropdown-container:hover .user-profile .fa-chevron-down {
+     transform: rotate(180deg);
+ }
+ 
+ .dropdown-item {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     padding: 0.75rem 1rem;
+     color: #9a9a9a;
+     text-decoration: none;
+     font-size: 0.9rem;
+     transition: all 0.3s ease;
+     border-radius: 8px;
+     /* Bo góc cho từng item */
+ }
+ /* Thêm style cho nội dung bên trong dropdown thông báo/tin nhắn */
+ 
+ .dropdown-item .dropdown-content {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .dropdown-item .dropdown-content span {
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width: 240px;
+     /* Giới hạn chiều rộng text */
+ }
+ 
+ .dropdown-item .dropdown-content .text-muted {
+     font-size: 0.8rem;
+     color: #808080;
+ }
+ 
+ .dropdown-item:hover {
+     background: rgba(192, 192, 192, 0.05);
+     color: #e0e0e0;
+ }
+ 
+ .dropdown-item i {
+     width: 20px;
+     text-align: center;
+     color: #c0c0c0;
+ }
+ 
+ .dropdown-divider {
+     height: 1px;
+     background: #2a2a2a;
+     margin: 0.5rem 0;
+ }
+ /* Thêm style cho header/footer của dropdown */
+ 
+ .dropdown-header {
+     padding: 0.75rem 1rem;
+     color: #ffffff;
+     font-weight: 600;
+     font-size: 0.95rem;
+ }
+ 
+ .dropdown-footer {
+     padding-top: 0.5rem;
+ }
+ 
+ .dropdown-footer .dropdown-item {
+     justify-content: center;
+     font-weight: 600;
+ }
+ 
+ .dropdown-item.danger:hover {
+     background: rgba(220, 53, 69, 0.1);
+     /* Màu đỏ nguy hiểm */
+     color: #ff8080;
+ }
+ 
+ .dropdown-item.danger:hover i {
+     color: #ff8080;
  }

@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DangKyRequest;
 use App\Http\Requests\DangNhapRequest;
+
+
+use App\Mail\WelcomeMail;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
+
+use Illuminate\Support\Facades\Mail;
+
 
 class AuthDangKy extends Controller
 {
@@ -17,11 +25,23 @@ class AuthDangKy extends Controller
     }
     public function postdangky(DangKyRequest $request)
     {
-        User::create([
+
+        // User::create([
+
+        $user =  User::create([
+
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => $request->get('password')
         ]);
+
+
+
+
+        Mail::to($user->email)->queue(new WelcomeMail($user));
+
+
+
         return back()->with('message', 'Đăng ký thành công');
     }
     public function dangnhap()
@@ -34,6 +54,7 @@ class AuthDangKy extends Controller
         $ktra = $request->only('email', 'password');
         if (Auth::attempt($ktra)) {
             $request->session()->regenerate();
+            //nếu khớp trả về trang người dùng định truy cập trước đó (Nếu có) hoặc về trang chủ
             return redirect()->intended('/');
         }
         return back()->withErrors([
@@ -46,6 +67,6 @@ class AuthDangKy extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('dangnhap');
+        return redirect()->route('login');
     }
 }

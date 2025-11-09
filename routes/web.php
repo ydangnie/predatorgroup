@@ -2,11 +2,17 @@
 
 use App\Http\Controllers\AuthDangKy;
 use App\Http\Controllers\AuthDangNhap;
+
+
+use App\Http\Controllers\bannerController;
+
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginGG;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserConTroller;
 use App\Http\Controllers\UsersController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +51,9 @@ Route::post('dangky', [AuthDangKy::class, 'postdangky'])->name('postdangky');
 Route::get('dangnhap', [AuthDangKy::class, 'dangnhap'])->name('login');
 Route::post('dangnhap', [AuthDangKy::class, 'postdangnhap'])->name('postdangnhap');
 Route::get('dangxuat', [AuthDangKy::class, 'dangxuat'])->name('dangxuat');
+
+
+
+
+
+

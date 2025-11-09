@@ -21,9 +21,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => PhanQuyenAdmin::class
         ]);
-        $middleware->alias(['access.time' => CheckAccessTime::class]
-            
-        );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

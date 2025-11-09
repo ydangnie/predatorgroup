@@ -2,19 +2,7 @@
 
 <main class="main-content">
 
-
-  <section class="hero-section">
-    <h1 class="hero-title">PREDATOR COLLECTION</h1>
-    <p class="hero-subtitle">ĐỊNH NGHĨA LẠI ĐẲNG CẤP THỜI GIAN</p>
-  </section>
- <section class="hero-section">
-    <h1 class="hero-title">PREDATOR COLLECTION</h1>
-    <p class="hero-subtitle">ĐỊNH NGHĨA LẠI ĐẲNG CẤP THỜI GIAN</p>
-  </section>
- <section class="hero-section">
-    <h1 class="hero-title">PREDATOR COLLECTION</h1>
-    <p class="hero-subtitle">ĐỊNH NGHĨA LẠI ĐẲNG CẤP THỜI GIAN</p>
-  </section>
+@include('layouts.main')
 
 </main>
 

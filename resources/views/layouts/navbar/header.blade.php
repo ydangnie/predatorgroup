@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PREDATORWATCH - Luxury Timepieces</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-    </style>
+ 
 </head>
 
-<body>
+
     <header class="header">
         <div class="header-top">
             <div class="header-top-content">
@@ -20,7 +19,7 @@
             </div>
         </div>
         <div class="header-main">
-            <div class="logo" ><a href="/">PREDATORWATCH</a></div>
+            <div class="logo"><a href="/">PREDATORWATCH</a></div>
 
             <nav>
                 <ul class="nav-menu" id="navMenu">
@@ -132,12 +131,20 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Dịch Vụ</a>
+                        <a href="#" class="nav-link">Dịch Vụ
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="#" class="dropdown-item">
+                                    Liên hệ
+                                    <span class="item-price"></span>
+                                </a></li>
+                           
+                        </ul>
+                    </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Về Chúng Tôi</a>
-                    </li>
+                   
                 </ul>
             </nav>
 
@@ -153,17 +160,24 @@
                 </button>
                 <li class="nav-item" id="logout">
                     @guest
-                    
+
                     <a href="{{ route('login') }}" class="nav-link">Login</a>
                     @endguest
                     @auth
-                    
+
                     <a href="#" class="action-btn">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span class="dropdown-arrow">▼</span>
-                        
+
                     </a>
                     <ul class="dropdown">
+                        @if(Auth::user()->role === 'admin')
+
+                        <li><a href="{{ route('admin.dasboard') }}" class="dropdown-item">
+                                Quản trị admin
+                            @endif
+
+                            </a></li>
                         <li><a href="#" class="dropdown-item">
                                 Hồ sơ
 
@@ -174,17 +188,10 @@
 
                             </a></li>
                     </ul>
-@endauth
+                    @endauth
                 </li>
                 </button>
                 <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
             </div>
         </div>
     </header>
-
-    <!-- <section class="hero-section">
-        <h1 class="hero-title">PREDATOR COLLECTION</h1>
-        <p class="hero-subtitle">ĐỊNH NGHĨA LẠI ĐẲNG CẤP THỜI GIAN</p>
-    </section> -->
-
- 

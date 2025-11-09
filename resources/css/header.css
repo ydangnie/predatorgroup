@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+header.body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     min-height: 100vh;
@@ -167,7 +167,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 15px;
 }
 
 .dropdown::before {

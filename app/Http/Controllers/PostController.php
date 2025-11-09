@@ -27,9 +27,11 @@ class PostController extends Controller
         $path = null; // <-- Khởi tạo biến $path ở đây
         //xử lý lưu file
         if ($request->hasFile('thumbnail')) {
+
             $file = $request->file('thumbnail');
             $fileName = time() . '-' . $file->getClientOriginalName();
-            $path = $file->storeAs('images', $fileName);
+            // Sửa 'name' thành 'images' để thống nhất
+            $path =  $file->storeAs('images', $fileName);
         }
 
         DB::table('posts')->insert([
@@ -71,7 +73,7 @@ class PostController extends Controller
         $posts->update([
             'title' => $request->get('title'),
             'content' => $request->get('content'),
-            'thumbnail' =>$path ?? null
+            'thumbnail' => $path ?? null
         ]);
 
         return redirect()->route('posts.index')->with('message', 'Cập nhật thành công');

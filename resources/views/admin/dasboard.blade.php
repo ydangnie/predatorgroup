@@ -1,18 +1,19 @@
-<!DOCTYPE html>
+
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Quản Lý Đồng Hồ</title>   
+    <title>Admin Dashboard - Quản Lý Đồng Hồ</title>
     @vite(['resources/css/admin/admindasboard.css', 'resources/js/admin/dasboard.js'])
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
+
 <body>
     <div class="dashboard-container">
-        <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="logo-container">
                 <div class="logo">
@@ -20,7 +21,7 @@
                     <span>TimeKeeper</span>
                 </div>
             </div>
-            
+
             <nav>
                 <div class="nav-item active">
                     <i class="fas fa-home"></i>
@@ -28,10 +29,14 @@
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-shopping-bag"></i>
-                    <span>Đơn Hàng</span>
+                    <span onclick="toggleBanner()">Banner</span>
+                    <div id="banner-content" style="display: none;">
+                        @include('admin.banner');
+                    </div>
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-clock"></i>
+
                     <span>Sản Phẩm</span>
                 </div>
                 <div class="nav-item">
@@ -61,33 +66,117 @@
             </nav>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
-            <!-- Top Bar -->
             <div class="top-bar">
                 <div style="display: flex; align-items: center; gap: 1rem; flex: 1;">
                     <input type="text" class="search-bar" placeholder="Tìm kiếm đơn hàng, sản phẩm, khách hàng...">
                 </div>
+
                 <div style="display: flex; align-items: center; gap: 1rem;">
-                    <div class="icon-btn">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">12</span>
+
+                    <div class="dropdown-container">
+                        <div class="icon-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">12</span>
+                        </div>
+                        <div class="dropdown-menu dropdown-lg">
+                            <div class="dropdown-header">
+                                Thông Báo (12)
+                            </div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <div class="dropdown-content">
+                                    <span>Đơn hàng #DH-00847 đã hoàn thành</span>
+                                    <span class="text-muted">5 phút trước</span>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-users"></i>
+                                <div class="dropdown-content">
+                                    <span>Khách hàng mới: Trần Thị B</span>
+                                    <span class="text-muted">1 giờ trước</span>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-star"></i>
+                                <div class="dropdown-content">
+                                    <span>Đánh giá 5 sao mới</span>
+                                    <span class="text-muted">3 giờ trước</span>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-footer">
+                                <a href="#" class="dropdown-item">
+                                    Xem tất cả thông báo
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="icon-btn">
-                        <i class="fas fa-envelope"></i>
-                        <span class="notification-badge">5</span>
+
+                    <div class="dropdown-container">
+                        <div class="icon-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="notification-badge">5</span>
+                        </div>
+                        <div class="dropdown-menu dropdown-lg">
+                            <div class="dropdown-header">
+                                Tin Nhắn (5)
+                            </div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user-circle"></i>
+                                <div class="dropdown-content">
+                                    <span>Nguyễn Văn A</span>
+                                    <span class="text-muted">Tôi cần tư vấn về mẫu Rolex...</span>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user-circle"></i>
+                                <div class="dropdown-content">
+                                    <span>Lê Văn C</span>
+                                    <span class="text-muted">Sản phẩm có sẵn không?</span>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-footer">
+                                <a href="#" class="dropdown-item">
+                                    Xem tất cả tin nhắn
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="user-profile">
-                        <div class="avatar">AD</div>
-                        <div>
-                            <div style="font-weight: 600; color: #ffffff;">Admin</div>
-                            <div style="font-size: 0.85rem; color: #9a9a9a;">Quản trị viên</div>
+
+                    <div class="dropdown-container">
+                        <div class="user-profile" id="profileToggle">
+                            <div class="avatar">AD</div>
+                            <div>
+                                <div style="font-weight: 600; color: #ffffff;">Admin Name</div>
+                                <div style="font-size: 0.85rem; color: #9a9a9a;">Admin Role</div>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Hồ Sơ Của Tôi</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Cài Đặt</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Hỗ Trợ</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item danger">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Đăng Xuất</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Stats Grid -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon revenue">
@@ -134,7 +223,6 @@
                 </div>
             </div>
 
-            <!-- Chart -->
             <div class="chart-container">
                 <div class="chart-header">
                     <h3 class="chart-title">Thống Kê Doanh Thu</h3>
@@ -148,7 +236,6 @@
                 <canvas id="revenueChart" style="max-height: 350px;"></canvas>
             </div>
 
-            <!-- Recent Orders Table -->
             <div class="table-container">
                 <div class="table-header">
                     <h3 class="chart-title">Đơn Hàng Gần Đây</h3>
@@ -274,9 +361,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-      
-    </script>
 </body>
-</html>
