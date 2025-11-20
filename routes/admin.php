@@ -12,5 +12,4 @@ Route::get('dasboard',[AdminController::class, 'index'])
 
 Route::get('/admin/banner', [bannerController::class, 'index'])->name('admin.banner');
 
-
 });

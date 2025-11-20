@@ -17,7 +17,7 @@
             <div class="logo-container">
                 <div class="logo">
                     <i class="fas fa-clock"></i>
-                    <span>TimeKeeper</span>
+                    <span>PREDATOR</span>
                 </div>
             </div>
 
@@ -42,15 +42,23 @@
                 <div class="sub-nav-container" style="display: none;">
                     <a href="#" class="nav-item sub-nav-item">
                         <i class="fas fa-tags"></i>
-                        <span>Quản lý danh mục</span>
+                        <span> Danh mục</span>
                     </a>
                     <a href="#" class="nav-item sub-nav-item">
                         <i class="fas fa-box-open"></i>
-                        <span>Quản lí sản phẩm</span>
+                        <span> Sản phẩm</span>
                     </a>
                     <a href="#" class="nav-item sub-nav-item">
                         <i class="fas fa-box-open"></i>
-                        <span>Quản lí thương hiệu</span>
+                        <span> Thương hiệu</span>
+                    </a>
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-box-open"></i>
+                        <span> Người dùng</span>
+                    </a>
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-box-open"></i>
+                        <span>Banner</span>
                     </a>
                 </div>
                 <div class="nav-item">
@@ -163,8 +171,8 @@
                         <div class="user-profile" id="profileToggle">
                             <div class="avatar">AD</div>
                             <div>
-                                <div style="font-weight: 600; color: #ffffff;">Admin Name</div>
-                                <div style="font-size: 0.85rem; color: #9a9a9a;">Admin Role</div>
+                                <div style="font-weight: 600; color: #ffffff;">{{ Auth::user()->name}}</div>
+                                <div style="font-size: 0.85rem; color: #9a9a9a;">{{ Auth::user()->role}} </div>
                             </div>
                             <i class="fas fa-chevron-down"></i>
                         </div>
@@ -253,9 +261,9 @@
             <div class="table-container">
                 <div class="table-header">
                     <h3 class="chart-title">Đơn Hàng Gần Đây</h3>
-                    <button class="btn-primary">
+                    <!-- <button class="btn-primary">
                         <i class="fas fa-plus"></i> Thêm Đơn Hàng
-                    </button>
+                    </button> -->
                 </div>
                 <table class="admin-table">
                     <thead>

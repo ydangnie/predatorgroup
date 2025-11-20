@@ -1,5 +1,4 @@
-
-    <footer class="pw-footer">
+<footer class="pw-footer">
         <div class="pw-footer-decoration pw-decoration-1"></div>
         <div class="pw-footer-decoration pw-decoration-2"></div>
         
