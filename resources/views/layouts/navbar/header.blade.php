@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
+
 
 <head>
     <meta charset="UTF-8">
@@ -58,78 +57,18 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         Nam
-                        <span class="dropdown-arrow">▼</span>
+
                     </a>
-                    <ul class="dropdown">
-                        <li><a href="#" class="dropdown-item">
-                                Automatic
-                                <span class="item-price">từ 15tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Chronograph
-                                <span class="item-price">từ 25tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Tourbillon
-                                <span class="item-price">từ 100tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Moon Phase
-                                <span class="item-price">từ 50tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Skeleton
-                                <span class="item-price">từ 35tr</span>
-                            </a></li>
-                    </ul>
+
                 </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         Nữ
-                        <span class="dropdown-arrow">▼</span>
+                        
                     </a>
-                    <ul class="dropdown">
-                        <li><a href="#" class="dropdown-item">
-                                Cocktail Watch
-                                <span class="item-price">từ 20tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Diamond Collection
-                                <span class="item-price">từ 80tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Ceramic Series
-                                <span class="item-price">từ 30tr</span>
-                            </a></li>
-                        <li><a href="#" class="dropdown-item">
-                                Mother of Pearl
-                                <span class="item-price">từ 45tr</span>
-                            </a></li>
-                    </ul>
+
                 </li>
-
-                <!-- <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            Limited Edition
-                            <span class="dropdown-arrow">▼</span>
-                        </a>
-                        <ul class="dropdown">
-                            <li><a href="#" class="dropdown-item">
-                                    50th Anniversary
-                                    <span class="item-price">Liên hệ</span>
-                                </a></li>
-                            <li><a href="#" class="dropdown-item">
-                                    Collaboration Series
-                                    <span class="item-price">từ 200tr</span>
-                                </a></li>
-                            <li><a href="#" class="dropdown-item">
-                                    Heritage Collection
-                                    <span class="item-price">từ 150tr</span>
-                                </a></li>
-                        </ul>
-                    </li> -->
-
                 <li class="nav-item">
                     <a href="#" class="nav-link">Dịch Vụ
                         <span class="dropdown-arrow">▼</span>

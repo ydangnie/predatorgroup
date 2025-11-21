@@ -1,10 +1,5 @@
 /* Thêm vào đầu file resources/css/layout/lienhe.css */
 
-html {
-    overflow-y: scroll;
-    /* Luôn giữ chỗ cho thanh cuộn */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +12,7 @@ header.body {
     min-height: 100vh;
 }
 
-.header {
+header.header {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(15, 15, 15, 0.98) 100%);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
