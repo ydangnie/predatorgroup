@@ -12,8 +12,6 @@
     @include('layouts.navbar.header')
     <div class="whcart_page_shell_z19a">
         <div class="whcart_maxwrap_z19a">
-
-
             <main class="whcart_main_z19a">
                 <section class="whcart_cart_block_z19a" aria-label="Nội dung giỏ hàng">
                     <div class="whcart_cart_inner_z19a">
@@ -150,12 +148,9 @@
                         </div>
                     </div>
                 </aside>
-        </div>@include('layouts.navbar.footer')
-        </main>
-
-
-
-
+            </main>
+           
+        </div>
+         @include('layouts.navbar.footer')
     </div>
-
 </body>
